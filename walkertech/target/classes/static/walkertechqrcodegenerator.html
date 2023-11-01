@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de QR Code</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('www.png'); /* Substitua com o caminho da sua imagem de fundo */
+            background-size: cover;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        h1 {
+            background-image: url('walkertech.png');
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #qr-code {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1><img class="logo" src="walkertech.png" alt="Seu Logotipo"></h1>
+        <input type="text" id="qr-text" placeholder="Texto para QR Code">
+        <button id="generate-qr">Gerar QR Code</button>
+        <div id="qr-code"></div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const generateQRButton = document.getElementById("generate-qr");
+            const qrCodeContainer = document.getElementById("qr-code");
+
+            generateQRButton.addEventListener("click", function () {
+                const qrText = document.getElementById("qr-text").value;
+                if (qrText) {
+                    const qrCodeURL = `https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=${encodeURIComponent(qrText)}`;
+                    qrCodeContainer.innerHTML = `<img src="${qrCodeURL}" alt="QR Code" />`;
+                } else {
+                    alert("Digite um texto para gerar o QR Code.");
+                }
+            });
+        });
+    </script>
+</body>
+</html>
