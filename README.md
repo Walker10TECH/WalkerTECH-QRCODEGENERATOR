@@ -1,5 +1,4 @@
 # WalkerTECH-QRCODEGENERATOR
-Claro, vou fornecer uma breve explicação do que cada parte do código faz:
 
 @GetMapping("/") - Esta anotação mapeia a URL raiz (http://localhost:8080/walkertechqrcodegenerator.html) para o método getQRCodePage().
 
